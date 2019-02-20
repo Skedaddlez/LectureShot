@@ -24,7 +24,7 @@ while success:
     if wait == 125:
         ssimval = compare_ssim(image, image2, multichannel=True)
         print("SSIM: {}".format(ssimval))
-        if ssimval < 0.8:
+        if ssimval < 0.95:
             count += 1
             cv2.imwrite("temp/frame%d.png" % count, image2)  # save frame as JPEG file
             image = image2
