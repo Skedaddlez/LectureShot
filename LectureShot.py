@@ -1,15 +1,5 @@
-from PIL import Image
 import cv2
-import os
-import ffmpeg
-import glob
-import sys
-import numpy as np
-import argparse
-import imutils
 from skimage.measure import compare_ssim
-import math
-
 
 videoname = input("Video filename (include extension) = ")
 vidcap = cv2.VideoCapture(videoname)
@@ -24,7 +14,7 @@ while success:
     if wait == 125:
         ssimval = compare_ssim(image, image2, multichannel=True)
         print("SSIM: {}".format(ssimval))
-        if ssimval < 0.95:
+        if ssimval < 0.88:
             count += 1
             cv2.imwrite("temp/frame%d.png" % count, image2)  # save frame as JPEG file
             image = image2
